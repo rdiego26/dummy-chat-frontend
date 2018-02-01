@@ -8,6 +8,19 @@ function appendHistory(text) {
 
 function sendUserInput() {
     const userInput = document.getElementById('userInput').value;
+    console.log(userInput)
     //TODO fazer validação antes de enviar
-    appendHistory(userInput);
+    if(required(userInput)) {
+        appendHistory(userInput);
+        document.getElementById('userInput').value = '';
+    }
+}
+
+function required(userInput) {
+    console.log(userInput.value)
+    if (userInput.value.length == 0) { 
+        swal('message cannot be null') 	
+        return false; 
+    }  	
+    return true; 
 }
