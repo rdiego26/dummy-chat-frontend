@@ -10,8 +10,6 @@ function sendUserInput() => {
     const userInput = document.getElementById('userInput').value;
     //TODO fazer validação antes de enviar
 
-
-    let request = new XMLHttpRequest();
     let userInputToSend = {
         text: userInput
     };
