@@ -6,7 +6,7 @@ function appendHistory(text) {
     historyContainer.appendChild(myNewElement);
 }
 
-function sendUserInput() {
+function sendUserInput() => {
     const userInput = document.getElementById('userInput').value;
     console.log(userInput)
     //TODO fazer validação antes de enviar
@@ -23,4 +23,38 @@ function required(userInput) {
         return false; 
     }  	
     return true; 
+
+    let userInputToSend = {
+        text: userInput
+    };
+    let success = () => {
+        appendHistory(userInput);
+    };
+    let error = () => {} ;
+
+    makeRequest(userInputToSend, success, error);
+
+}
+
+function makeRequest(obj, success, error) => {
+
+    let request = new XMLHttpRequest();
+
+    request.open('POST', '/my/url', true);
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            success();
+        } else {
+            error();
+        }
+    };
+
+    request.onerror = function() {
+        // There was a connection error of some sort
+        error();
+    };
+
+    request.send(JSON.stringify(obj));
+
 }
