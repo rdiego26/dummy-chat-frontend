@@ -54,7 +54,7 @@ let sendUserInput = () => {
     } else {
         let userInputToSend = { question: userInput };
         let success = (response) => {
-            let resp = response.answer || 'Desculpe não consegui entender =/';
+            let resp = response.answer || 'Desculpe, não consegui entender =/';
             appendUserHistory(userInput);
             appendChatHistory(resp);
         };
