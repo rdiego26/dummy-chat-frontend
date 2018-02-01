@@ -10,19 +10,20 @@
 </head>
 <body>
 
+    <div class="container" id="history">
+    </div>
+
     <div class="container">
-        <div class="row" id="history">
-
-
-        </div>
         <div class="row">
-            <div class="column column-75">.column</div>
+            <div class="column column-75">
+                <input id="userInput" name="userInput" type="text" placeholder="Digite aqui">
+            </div>
             <div class="column column-25">
-                <button class="button button-outline">Outlined Button</button>
+                <button class="button button-outline" onclick="sendUserInput();">
+                    Enviar
+                </button>
             </div>
         </div>
-
-
     </div>
 
     <script src="chatApp.js"></script>
