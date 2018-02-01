@@ -1,42 +1,42 @@
-function appendHistory(text) {
+let appendHistory = (text) => {
     let historyContainer = document.getElementById('history');
     let myNewElement = document.createElement('div');
     myNewElement.classList.add('column');
     myNewElement.innerHTML = text;
     historyContainer.appendChild(myNewElement);
-}
+};
 
-function sendUserInput() => {
+let sendUserInput = () => {
     const userInput = document.getElementById('userInput').value;
-    console.log(userInput)
-    //TODO fazer validação antes de enviar
-    if(required(userInput)) {
+
+    if(userInput == '' || !userInput) {
+        swal({
+            title: 'Error!',
+            text: 'Por favor, informe a mensagem!',
+            type: 'error'
+        });
+    } else {
+        let userInputToSend = { question: userInput };
+        let success = (response) => {
+            let resp = response.answer || 'N/A';
+            appendHistory(userInput);
+            appendHistory(resp);
+        };
+        let error = () => {
+            swal({
+                title: 'Error!',
+                text: 'Ocorreu um erro durante a comunicação com servidor! :(',
+                type: 'error'
+            });
+        } ;
+
+        makeRequest(userInputToSend, success, error);
         appendHistory(userInput);
         document.getElementById('userInput').value = '';
     }
-}
+};
 
-function required(userInput) {
-    console.log(userInput.value)
-    if (userInput.value.length == 0) { 
-        swal('message cannot be null') 	
-        return false; 
-    }  	
-    return true; 
-
-    let userInputToSend = {
-        text: userInput
-    };
-    let success = () => {
-        appendHistory(userInput);
-    };
-    let error = () => {} ;
-
-    makeRequest(userInputToSend, success, error);
-
-}
-
-function makeRequest(obj, success, error) => {
+let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
@@ -57,4 +57,12 @@ function makeRequest(obj, success, error) => {
 
     request.send(JSON.stringify(obj));
 
-}
+};
+
+let handleUserFeedback = (title, type, message, cb) => {
+    swal({
+        title: title,
+        text: message,
+        type: type
+    }, cb);
+};
