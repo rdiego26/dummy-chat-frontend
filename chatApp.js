@@ -40,11 +40,11 @@ let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
-    request.open('POST', '/my/url', true);
+    request.open('POST', 'http://051cb39d.ngrok.io/bot', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
-            success();
+            success(JSON.parse(request.responseText));
         } else {
             error();
         }
