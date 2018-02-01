@@ -1,9 +1,45 @@
-let appendHistory = (text) => {
+let appendChatHistory = (text) => {
     let historyContainer = document.getElementById('history');
-    let myNewElement = document.createElement('div');
-    myNewElement.classList.add('column');
-    myNewElement.innerHTML = text;
-    historyContainer.appendChild(myNewElement);
+
+    let fatherElement = document.createElement('div');
+    fatherElement.classList.add('row');
+
+    let childrenElement = document.createElement('div');
+    childrenElement.classList.add('column');
+    childrenElement.classList.add('column-50');
+
+    let prefixElement = document.createElement('strong');
+    prefixElement.innerHTML = 'Bot: ';
+    let textBotElement = document.createElement('span');
+    textBotElement.innerHTML = text;
+
+    childrenElement.appendChild(prefixElement);
+    childrenElement.appendChild(textBotElement);
+
+    fatherElement.appendChild(childrenElement);
+    historyContainer.appendChild(fatherElement);
+};
+
+let appendUserHistory = (text) => {
+    let historyContainer = document.getElementById('history');
+
+    let fatherElement = document.createElement('div');
+    fatherElement.classList.add('row');
+
+    let childrenElement = document.createElement('div');
+    childrenElement.classList.add('column');
+    childrenElement.classList.add('column-50');
+
+    let prefixElement = document.createElement('strong');
+    prefixElement.innerHTML = 'Você: ';
+    let textBotElement = document.createElement('span');
+    textBotElement.innerHTML = text;
+
+    childrenElement.appendChild(prefixElement);
+    childrenElement.appendChild(textBotElement);
+
+    fatherElement.appendChild(childrenElement);
+    historyContainer.appendChild(fatherElement);
 };
 
 let sendUserInput = () => {
@@ -18,9 +54,9 @@ let sendUserInput = () => {
     } else {
         let userInputToSend = { question: userInput };
         let success = (response) => {
-            let resp = response.answer || 'N/A';
-            appendHistory(userInput);
-            appendHistory(resp);
+            let resp = response.answer || 'Desculpe não consegui entender =/';
+            appendUserHistory(userInput);
+            appendChatHistory(resp);
         };
         let error = () => {
             swal({
@@ -31,7 +67,6 @@ let sendUserInput = () => {
         } ;
 
         makeRequest(userInputToSend, success, error);
-        appendHistory(userInput);
         document.getElementById('userInput').value = '';
     }
 };
@@ -40,7 +75,7 @@ let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
-    request.open('POST', 'http://051cb39d.ngrok.io/bot', true);
+    request.open('POST', 'http://2f873afe.ngrok.io/bot', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
