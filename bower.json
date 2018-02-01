@@ -1,0 +1,24 @@
+{
+  "name": "dummy-chat-frontend",
+  "homepage": "https://github.com/rdiego26/dummy-chat-frontend",
+  "authors": [
+    "rdiego26 <rdiego26@gmail.com>"
+  ],
+  "description": "Simple forntend to chat",
+  "main": "index.html",
+  "keywords": [
+    "chat-bot"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "milligram": "^1.3.0"
+  }
+}
