@@ -53,9 +53,10 @@ let sendUserInput = () => {
         });
     } else {
         let userInputToSend = { question: userInput };
+        appendUserHistory(userInput);
+
         let success = (response) => {
             let resp = response.answer || 'Desculpe, não consegui entender =/';
-            appendUserHistory(userInput);
             appendChatHistory(resp);
         };
         let error = () => {
@@ -75,7 +76,7 @@ let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
-    request.open('POST', 'http://chatbot.staging.99taxis.com/bot', true);
+    request.open('POST', 'http://4fc7af81.ngrok.io/bot', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
