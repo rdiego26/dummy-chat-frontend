@@ -1,3 +1,70 @@
 body {
+    margin: 0;
+    padding: 0;
     margin-bottom: 2em;
+}
+
+.button.button-outline, button.button-outline, input[type='button'].button-outline, input[type='reset'].button-outline, input[type='submit'].button-outline {
+    background-color: #fd0;
+    color: #3a3a3a;
+    border: 0.1rem solid #fd0;
+}
+
+.button.button-outline:hover, button.button-outline:hover, input[type='button'].button-outline:hover, input[type='reset'].button-outline:hover, input[type='submit'].button-outline:hover {
+    color: #fd0;
+    background-color: #3a3a3a;
+}
+
+.header {
+    background-color: #fd0;
+    border-color: #fd0;
+    display: block;
+    height: 6.2rem;
+    left: 0;
+    max-width: 100%;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.header a {
+    background: url(http://novenoveapp.wpengine.com/wp-content/uploads/2017/10/LOGO.svg) center center no-repeat;
+    color: #3a3a3a;
+    height: 70px;
+    width: 88px;
+    text-indent: -9999px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    background-size: 48px 48px;
+    width: 88px;
+    margin-left: -20px;
+    text-indent: -9999px;
+    display: block;
+    padding: 23px 20px;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: "Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+.wrapper {
+    margin-top: 2em;
+}
+
+.user-input-box {
+    margin-top: 0.5em;
+}
+.user-input-box #userInput:hover {
+    border-color: #3a3a3a;;
+}
+
+#history a {
+    background-color: #fd0;
+    color: #3a3a3a;
+    padding: 0.3em 0.3em;
+}
+
+#history a:hover {
+    color: #fd0;
+    background-color: #3a3a3a;
 }

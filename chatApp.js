@@ -42,6 +42,7 @@ let appendUserHistory = (text) => {
     historyContainer.appendChild(fatherElement);
 };
 
+
 let sendUserInput = () => {
     const userInput = document.getElementById('userInput').value;
 
@@ -107,5 +108,13 @@ let initialize = () => {
     animatelo.fadeInUp(document.getElementById('greeting'));
     animatelo.lightSpeedIn(document.getElementById('actionButton'));
 };
+
+let onInputSubmit = (event) => {
+    if (event.which == 13 || event.keyCode == 13) {
+        sendUserInput();
+        return false;
+    }
+    return true;
+}
 
 initialize();
