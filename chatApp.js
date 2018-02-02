@@ -117,4 +117,22 @@ let onInputSubmit = (event) => {
     return true;
 }
 
+
+const formToJSON = elements => [].reduce.call(elements, (data, element) => {  
+  data[element.name] = element.value;
+  return data;
+}, {});
+
+const sendHistoryFormData = (event) => {
+  event.preventDefault();
+
+  let nameOfFunction = this[event.target.name];
+  let formName = event.target.getAttribute('data-form-name');
+
+  let form =  document.getElementsByClassName('formName')[0];
+
+  const data = formToJSON(form.elements);
+  print(JSON.stringify(data, null, "  "));
+};
+
 initialize();

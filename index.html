@@ -32,10 +32,10 @@
         <div class="container">
             <div class="row user-input-box">
                 <div class="column column-75">
-                    <input id="userInput" name="userInput" type="text" placeholder="Digite aqui" onkeydown="return onInputSubmit(event)" >
+                    <input id="userInput" name="userInput" type="text" placeholder="Faça sua pergunta ou de sua opinião" onkeydown="return onInputSubmit(event)" >
                 </div>
                 <div class="column column-25">
-                    <button class="button button-outline" id="actionButton" onclick="sendUserInput();">
+                    <button class="button button-outline" id="actionButton" onclick="sendUserInput(event); return false;">
                         Enviar
                     </button>
                 </div>
