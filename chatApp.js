@@ -76,7 +76,7 @@ let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
-    request.open('POST', 'http://4fc7af81.ngrok.io/bot', true);
+    request.open('POST', 'http://3298205f.ngrok.io/bot', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
@@ -102,3 +102,10 @@ let handleUserFeedback = (title, type, message, cb) => {
         type: type
     }, cb);
 };
+
+let initialize = () => {
+    animatelo.fadeInUp(document.getElementById('greeting'));
+    animatelo.lightSpeedIn(document.getElementById('actionButton'));
+};
+
+initialize();

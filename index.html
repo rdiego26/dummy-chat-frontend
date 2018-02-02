@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="greeting">
         <h3>Bem-vindo ao chat da 99!</h3>
     </div>
 
@@ -24,7 +24,7 @@
                 <input id="userInput" name="userInput" type="text" placeholder="Digite aqui" >
             </div>
             <div class="column column-25">
-                <button class="button button-outline" onclick="sendUserInput();">
+                <button class="button button-outline" id="actionButton" onclick="sendUserInput();">
                     Enviar
                 </button>
             </div>
@@ -32,6 +32,7 @@
     </div>
 
     <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="bower_components/animatelo/dist/animatelo.min.js"></script>
     <script src="chatApp.js"></script>
 
 </body>
