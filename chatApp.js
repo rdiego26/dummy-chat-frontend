@@ -76,7 +76,7 @@ let makeRequest = (obj, success, error) => {
 
     let request = new XMLHttpRequest();
 
-    request.open('POST', 'http://3298205f.ngrok.io/bot', true);
+    request.open('POST', 'http://chatbot.staging.99taxis.com/bot', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
