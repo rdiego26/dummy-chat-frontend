@@ -68,3 +68,16 @@ body {
     color: #fd0;
     background-color: #3a3a3a;
 }
+
+#history form {
+    margin-top: 20px;
+}
+#history form label {
+    font-size: 10px;
+}
+#history form dd {
+    margin-left:0;
+}
+#history form dd input {
+    margin:0;
+}
